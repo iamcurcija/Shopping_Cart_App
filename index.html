@@ -32,7 +32,7 @@
 			<input type="text" ng-model="nameSearch" size="20"></p>
 		</div>
 		<span class="pull-right">
-			<button type="button" class="btn btn-danger" ng-click="">Checkout | Bag:empty! </button>
+			<button type="button" class="btn btn-danger" ng-click="">Checkout | <ng-pluralize count="bag.length" when="{0: 'Empty', 1: '1 item', 'other': '{{bag.length/2}} item'}"></ng-pluralize> </button>
 		</span>
 		<div>
 			<table class="table table-bordered" >
@@ -42,7 +42,7 @@
 			        <th>Information 
 			        	<span class="pull-right"> Sort by price:
 							<select ng-model="priceSort">
-				  				<option value="high">High</option>
+				  				<option value="high" >High</option>
 				  				<option value="low">Low</option>
 				  			</select>
 			        </span></th>
@@ -56,7 +56,7 @@
 			        		<select ng-model="quantity">
 			        			<option ng-repeat="qty in [1,2,3,4,5,6,7,8,9,10]">{{qty}}</option>
 			        		</select>
-			        		<button type="button" class="btn btn-warning" ng-click="teas.addToBag(item,quantity)">Add to Bag</button>
+			        		<button type="button" class="btn btn-warning" ng-click="bag.addItem(item,quantity)">Add to Bag</button>
 			        	</span>
 			        	</h3>
 			        	<h5>Price: {{item.price / 100 | currency}}</h5>

@@ -128,10 +128,10 @@ app.controller("MainController", function($scope){
         categories: ["spring", "warm","winter"]
     }];
 
-    $scope.addToBag = function(item,quantity){
-    	$scope.bag.push(quantity);
-    	console.log($scope.bag)
-    	updatePrice();
+    $scope.bag.addItem = function(item,quantity){
+    	$scope.bag.push(item,quantity);
+    	console.log($scope.bag);
+    	// updatePrice();
     };
     function updatePrice() {
     	var sum = 0;
