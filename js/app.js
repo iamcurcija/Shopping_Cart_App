@@ -130,6 +130,7 @@ app.controller("MainController", function($scope){
 
     $scope.addToBag = function(item,quantity){
     	$scope.bag.push(quantity);
+    	console.log($scope.bag)
     	updatePrice();
     };
     function updatePrice() {

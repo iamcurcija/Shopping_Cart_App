@@ -13,9 +13,21 @@
 }
 
 .header{
-	color: orange;
+	color: #ff5c33;
 	font-size: 48pt;
 }
 a{
-	color: orange;
+	color: #ff5c33;
+}
+
+.headerColor {
+	width: 1200px;
+	height: 30px;
+	background-color: #ff5c33;
+	color: white;
+}
+
+.headerFont{
+	text-align: center;
+	font-size: 15pt;
 }
