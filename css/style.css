@@ -1,0 +1,21 @@
+
+.tdContainer{
+	position: relative;
+}
+.quantity{
+	position: absolute;
+    font-size: 16px;
+    top: 8px;
+    right: 40px;
+}
+.sorted{
+	margin-top: 40px;
+}
+
+.header{
+	color: orange;
+	font-size: 48pt;
+}
+a{
+	color: orange;
+}
