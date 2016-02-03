@@ -4,76 +4,15 @@
 	<meta charset="UTF-8">
 	<title>Shopping Cart App</title>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
 	 <script src="js/app.js" charset="utf-8"></script>
+	 <script src="js/services.js" charset="utf-8"></script>
+	 <script src="js/mainController.js"></script>
+	 <script src="js/orderController.js"></script>
 	 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="css/style.css" >
 </head>
-<body ng-controller="MainController">
-	<div class="container">
-	<div class="headerColor"> <div class="headerFont">Guranteed Awesome!!!</div></div>
-	<h1 class="header"><a href="index.html">Welcome to Mean Tea!!</a></h1>
-		<ul class="nav nav-tabs">
-		  <li role="presentation" class="active"><a href=""index.html"">Home</a></li>
-		  <li role="presentation"><a href="index.html">About</a></li>
-		  <li role="presentation"><a href="index.html">Contact</a></li>
-		</ul>
-		<div class="sorted" >
-		<p>Sort by category:
-		  	<select ng-model="categorySearch">
-  				<option value="dark">Dark</option>
-  				<option value="cold">Cold</option>
-  				<option value="hot">Hot</option>
-  				<option value="dry">Dry</option>
-  				<option value="summer">Summer</option>
-			</select>
-		
-		Sort by Name:
-		  	<label for="name"></label>
-			<input type="text" ng-model="nameSearch" size="20"></p>
-		</div>
-		<span class="pull-right">
-			<button type="button" class="btn btn-danger" ng-click="">Checkout | <ng-pluralize count="bag.length" when="{0: 'Empty', 1: '1 item', 'other': '{{bag.length/2}} item'}"></ng-pluralize> </button>
-		</span>
-		<div>
-			<table class="table table-bordered" >
-			    <thead>
-			      <tr>
-			        <th>Tea</th>
-			        <th>Information 
-			        	<span class="pull-right"> Sort by price:
-							<select ng-model="priceSort">
-				  				<option value="high" >High</option>
-				  				<option value="low">Low</option>
-				  			</select>
-			        </span></th>
-			      </tr>
-			    </thead>
-			    <tbody>
-			      <tr ng-repeat="item in view.teas | filter:categorySearch | filter: nameSearch | orderBy: priceSort">
-			        <td><img ng-src="{{item.imageUrl}}"</td>
-			        <td class="tdContainer"><h3>{{item.name}}
-			        	<span class="pull-right">Quantity:
-			        		<select ng-model="quantity">
-			        			<option ng-repeat="qty in [1,2,3,4,5,6,7,8,9,10]">{{qty}}</option>
-			        		</select>
-			        		<button type="button" class="btn btn-warning" ng-click="bag.addItem(item,quantity)">Add to Bag</button>
-			        	</span>
-			        	</h3>
-			        	<h5>Price: {{item.price / 100 | currency}}</h5>
-			        	<h5>Caffeine Scale: {{item.caffeineScale}}</h5>
-			        	<h5>Ingredients: {{item.ingredients}}</h5> 		        	
-			        	<h5>Rate: {{item.rating}} </h5>
-			        	<h5>In Stock: {{item.inStock ? "Yes":"No"}}</h5>
-			        	<h5>Categories:</h5>
-		          			<ul>
-		          				<li ng-repeat="category in item.categories"> {{category}}</li>
-		        			</ul>
-		        	</td>
-			      </tr>
-			    </tbody>
-  			</table>
-		</div>
-
-	</div>	
+<body>
+	<div ng-view></div>
 </body>
 </html>
