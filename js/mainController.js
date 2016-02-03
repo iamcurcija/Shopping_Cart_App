@@ -1,5 +1,6 @@
-app.controller("MainController", function($scope, bagService){
+app.controller("MainController", function($scope, bagService,$location){
 	$scope.view = {};
+    $scope.bag = [];
    	$scope.view.search = "";
    	$scope.totalCost = 0;
    	$scope.view.teas = [
@@ -125,8 +126,22 @@ app.controller("MainController", function($scope, bagService){
         categories: ["spring", "warm","winter"]
     }];
 
+    $scope.getBagSize = function() {
+        return bagService.bag.length/2;
+    };
+
+    $scope.displayBag = function() {
+        $location.path("/order");
+    };
     
-    $scope.addItem = bagService.addItem;
+    // $scope.addItem = bagService.addItem;
+
+    $scope.addToBag = function(item,quantity){
+        bagService.bag.push(item,quantity);             
+        console.log(bagService.bag);
+    };
+        
+});
 
     // function updatePrice() {
     // 	var sum = 0;
@@ -138,6 +153,12 @@ app.controller("MainController", function($scope, bagService){
     //     console.log($scope.totalCost);
     // }
 
+
+
+app.controller("OrderController", function($scope, bagService){
+    $scope.getOrder = bagService.bag;
+    console.log($scope.getOrder);
+    
 });
 
 

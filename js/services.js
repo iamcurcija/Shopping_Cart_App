@@ -1,14 +1,23 @@
 app.service('bagService', function(){
 
-	var mybag = this;
+  return {
+    bag: []
+  };
 
-	this.bag = [];
+	// var mybag = this;
 
-	this.addItem = function(item,quantity) {
-    	mybag.bag.push(item,quantity);
-    	console.log(mybag.bag);
-    	return mybag;
-	};
+	// this.bag = [];
+
+	// this.addItem = function(item,quantity) {
+	// 	// var quantityKey = {};
+
+ //    	mybag.bag.push(item,quantity);
+ //    	console.log(mybag.bag);
+ //    	return mybag;
+	// };
+	// getproduct: function(){
+ //      return mybag;
+ //    }
 
 
 });

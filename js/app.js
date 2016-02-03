@@ -5,7 +5,7 @@ app.config(function($routeProvider, $locationProvider){
         templateUrl:"../views/main.html",
         controller:"MainController"
     }).when('/order', {
-        templateUrl:"../views/order.html",
+        templateUrl:"views/order.html",
         controller:"OrderController"
     }).otherwise({
         redirectTo: "/"
